@@ -1,0 +1,52 @@
+-- Introduction au Base de données 
+-- AII 2023
+-- Résumé des commandes sql
+
+* Theme 0 PostGres psql
+** Se connecter à la Base De Données (BDD) en ligne de commande
++ psql nom_bdd nom_utilisateur
+** Lister les BDD du serveur
++ \l
+** Lister les tables de la BDD courante
++ \dt
+** Obtenir les informations de la connection en cours
++ \conninfo
+** Se connecter à une autre BDD du serveur
+\c nom_bdd
+** Obtenir la liste des commandes disponibles
++ \?
+
+* Theme 1 commande SELECT
++ SELECT colonne1, colonne2 FROM table;
++ SELECT * FROM nom_table;
+
+* Theme 2 commande SELECT avec contraintes
++ SELECT colonne1, colonne2 FROM tableau WHERE condition1 AND/OR condition2;
++ Opérateur NOT
++ Opérateurs pour les nombres:
+ + =, !=, < <=, >, >=
+ + BETWEEN nombre1 AND nombre2
+ + IN (nombre1, nombre2, nombre3)
++ Opérateurs pour le texte:
+ + Sensible à la casse: =, != ou <> 
+ + Non sensible à la casse: LIKE
+ + Caractère joker: %
+ + IN ("mot1", "mot2", "mot3")
+ 
+* Theme 3 Trier et filter les résultats
++ Clause DISTINCT:
+ + SELECT DISTINCT colonne1 FROM table;
++ Clause ORDER BY:
+ + SELECT colonne1 FROM table ORDER BY colonne1 ASC/DESC;
++ Clause LIMIT et OFFSET:
+ + SELECT colonne1 FROM table LIMIT num_limit OFFSET num_offset;
++ MIN/MAX
+ + SELECT colonne1, MIN(colonne2) FROM TABLE;
+ 
+* Theme 4 Requêtes sur plusieurs tables avec JOIN
++ INNER JOIN:
+ + SELECT colonne1 FROM table1 INNER JOIN table2 ON table1.colonneX=table2.colonneY;
+ + Cas d'ambiguité: 
+ SELECT table1.colonne1, table2.colonne1 FROM table1 INNER JOIN table2 ON table1.colonneX=table2.colonneY;
+ SELECT table1.colonne1 AS nom1, table2.colonne1 AS nom2 FROM table1 INNER JOIN table2 ON table1.colonneX=table2.colonneY;
+ 
