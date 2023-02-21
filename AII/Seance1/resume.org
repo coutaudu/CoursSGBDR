@@ -1,8 +1,5 @@
--- Introduction au Base de données 
--- AII 2023
--- Résumé des commandes sql
 
-* Theme 0 PostGres psql
+* PostGres psql
 ** Se connecter à la Base De Données (BDD) en ligne de commande
 + psql nom_bdd nom_utilisateur
 ** Lister les BDD du serveur
@@ -61,7 +58,7 @@
 + Il y aura forcément chacune des lignes de table2. Si aucune correspondance avec table1: NULL.
 ** FULL JOIN
 + SELECT table1.colonneA, table2.colonneB FROM table1 FULL JOIN table2 ON table1.colonneX=table2.colonneY
-+ Il y aura forcément chacune des lignes de table1 et chacune des linges de table1. Si aucune correspondance: NULL.
++ Il y aura forcément chacune des lignes de table1 et chacune des linges de table2. Si aucune correspondance: NULL.
 ** Valeur NULL
 + Valeur spéciale: "case vide".
 + Se filtre avec: WHERE colonne IS NULL  
