@@ -11,7 +11,7 @@ CREATE DATABASE "fabrique" WITH
 DROP TABLE IF EXISTS "employes";
 
 CREATE TABLE employes (
-	prenom PRIMARY KEY TEXT,
+	prenom  TEXT PRIMARY KEY,
 	salaire			INTEGER,
     adresse			TEXT,
     service_id		TEXT
@@ -21,7 +21,7 @@ CREATE TABLE employes (
 DROP TABLE IF EXISTS horaires;
 
 CREATE TABLE horaires (
-    service	PRIMARY KEY		TEXT,
+    service			TEXT PRIMARY KEY,
 	debut			INTEGER,
 	fin				INTEGER
 );

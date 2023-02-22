@@ -70,25 +70,51 @@
 		
 \end{frame}
 
-\begin{frame}{Système de Gestion de Base de Données (SGBD) ?}
-  \begin{columns}
-	    \begin{column}{0.5\textwidth}
+\begin{frame}[t]{Système de Gestion de Base de Données (SGBD) ?}
 	     \begin{exampleblock}{}
 	     	Ensemble d'outils permettant \textbf{l'organisation, le contrôle, la consultation et la modification} d'une base de donnée.
 	     \end{exampleblock}
-	     Objectif: masquer la complexité tout en assurant:
+  \begin{columns}
+	    \begin{column}{0.6\textwidth}
+\begin{footnotesize}
+	  	\begin{itemize}
+	  		\item Accès et manipulation standardisés.
 		 	\begin{itemize}
-		 		\item Accès et manipulation standardisés.
-		 		\item Stockage et accès optimisés.
-		 		\item Accès ou transactions (massivement) concurrentes.
-		 		\item Fiabilité (sauvegardes, restaurations, ...)
+		 	\item Indépendance physique des données
+	  		\item Indépendance logique des données
+	  		\item Réduire la complexité
+	 		\item Stockage et accès optimisés.
 		 	\end{itemize}
+		 	\item Contrôle de cohérence des données
+		 	\item Sécurité des données
+		 	\item Accès ou transactions (massivement) concurrentes.
+		 	\item Fiabilité (sauvegardes, restaurations, ...)
+		 	\end{itemize}
+\end{footnotesize}
 		\end{column}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.4\textwidth}
 		\begin{figure} \begin{center}\includegraphics[width=0.99\textwidth]{./figures/SGBDR.png}\end{center}\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
+
+\begin{frame}{Un exemple}
+Un outil de gestion d'atelier: GEDIX.
+\end{frame}
+
+\begin{frame}{Dans ce cours}
+Rudiments des Bases de Données:
+\begin{itemize}
+	\item Le modèle "relationnel"
+	\item Le langage SQL
+	\item PostgreSQL
+	\item Lire les données
+	\item Modifier les données
+	\item Concevoir une base de données simple
+\end{itemize}
+\end{frame}
+
+
 
 \begin{frame}{Un peu de vocabulaire}
 	\begin{itemize}
@@ -149,18 +175,6 @@
 \end{frame}
 
 
-
-
-\begin{frame}{Dans ce cours}
-\begin{itemize}
-	\item Le modèle "relationnel"
-	\item Le langage SQL
-	\item PostgreSQL
-	\item Lire les données
-	\item Modifier les données
-	\item Concevoir une base de données simple
-\end{itemize}			
-\end{frame}
 
 \section{Le modèle relationnel}
 \begin{frame}{Le modèle relationnel}
@@ -231,7 +245,7 @@
 	    \begin{column}{0.5\textwidth}
 		\begin{block}{Texte:}
 Sensible à la casse: =, != ou <> 
-\\Non sensible à la casse: LIKE (caractère joker: %)
+\\Non sensible à la casse: LIKE (caractère joker: \%)
 \\IN ("mot1", "mot2", "mot3")
 	\end{block}
 		    \end{column}
