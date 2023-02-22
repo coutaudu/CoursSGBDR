@@ -34,9 +34,9 @@
 % Numerotations
 \addtobeamertemplate{navigation symbols}{} { \usebeamerfont{footline} \usebeamercolor[fg]{footline} \hspace{1em} \insertframenumber/\inserttotalframenumber }
 
-\author{Ulysse COUTAUD}
 
-\date{21 Février 2023}
+\author{Ulysse COUTAUD\\\href{mailto:ulysse.coutaud@gmail.com}{\small ulysse.coutaud@gmail.com}}
+\date{}
 	
 \maketitle
 
@@ -382,41 +382,6 @@ Sensible à la casse: =, != ou <>
 	\textit{Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.}\\
 \end{frame}
 
-\section{Ecrire dans la base de données en SQL}
-\begin{frame}[t]{Insérer}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
-	\begin{alertblock}{Clause INSERT INTO}
-	INSERT INTO table VALUES ('valeur 1', 'valeur 2', ...)\\
-	INSERT INTO table (nom\_colonne\_1, nom\_colonne\_2, ...) VALUES ('valeur 1', 'valeur 2', ...)
-	\end{alertblock}
-		
-	\textit{Ajouter un nouvel employé dans le service "Production"}\\
-	\textit{Ajouter un service "Production Après-Midi" dont les horaires seront 13h-20h.}\\
-	\textit{Ajouter les horaires 16h-5h pour le service "Astreinte"}\\
-	\textit{Ajouter un nouvel employé "John" au service "Production Après-Midi". Que ce passe il ? }\\
-\end{frame}
 
-\begin{frame}[t]{Modifier}
-	\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-	\end{small}	
-	\begin{alertblock}{Clause UPDATE}
-		UPDATE table SET colonne\_1 = 'valeur 1', colonne\_2 = 'valeur 2', ... WHERE conditions;
-	\end{alertblock}
-	\textit{Augmenter le salaire des employes de "Astreinte" de 30\%}\\
-	\textit{L'employé Tom change de service et passe à l'après midi }\\
-\end{frame}
-
-\begin{frame}[t]{Supprimer}
-	\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-	\end{small}	
-	\begin{alertblock}{Clause DELETE FROM}
-		DELETE FROM table WHERE conditions;
-	\end{alertblock}
-	\textit{Supprimer le service de production après-midi.}\\
-\end{frame}
 
 \end{document}

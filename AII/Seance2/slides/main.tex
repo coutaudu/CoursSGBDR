@@ -1,0 +1,240 @@
+\documentclass[xetex,dvipsnames]{beamer}
+
+%\usepackage{fontspec}                           	% Typo
+\usepackage[french,english]{babel}
+\usepackage{empheq}                             	% Encadrer les équations
+\usepackage{amsthm}                             	% Démonstration de maths
+\usepackage{tabularx}                           	% Tableaux avancés
+\usepackage{fancyvrb}                           	% Blocs mono avancés
+\usepackage{caption}                            	% Légendes avancées
+\usepackage{tikz}                               	% Outil de dessin
+\usepackage{listings}                           	% Coloration syntaxique
+\usepackage{xcolor}                             	% Color support
+\usepackage{enumerate}
+\usetikzlibrary{calc,arrows,shapes.misc}
+\usepackage{hyperref}
+
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=8*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},cross/.default={1pt}}
+\definecolor{salmon}{HTML}{FA8072}
+\usefonttheme[onlymath]{serif} % Force les maths en serif
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Frankfurt}	
+\usecolortheme[rgb={0,0.6,0}]{structure}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+% Agmente les marges entre paragraphes % \setlength{\parskip}{1em}
+\title{Introduction aux Bases de Données}
+
+% Numerotations
+\addtobeamertemplate{navigation symbols}{} { \usebeamerfont{footline} \usebeamercolor[fg]{footline} \hspace{1em} \insertframenumber/\inserttotalframenumber }
+
+\author{Ulysse COUTAUD\\\href{mailto:ulysse.coutaud@gmail.com}{\small ulysse.coutaud@gmail.com}}
+\date{}
+	
+\maketitle
+
+\section{Modifier des données}
+\begin{frame}
+\begin{center}
+{\LARGE \textbf{Modifier des données}}
+\end{center}
+\end{frame}
+
+\begin{frame}[t]{Insérer un enregistrement}
+\begin{small}
+		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
+\end{small}	
+	\begin{alertblock}{Clause INSERT INTO}
+	INSERT INTO table VALUES ('valeur 1', 'valeur 2', ...)\\
+	INSERT INTO table (nom\_colonne\_1, nom\_colonne\_2, ...) VALUES ('valeur 1', 'valeur 2', ...)
+	\end{alertblock}
+		
+	\textit{Ajouter un nouvel employé dans le service "Production"}\\
+	\textit{Ajouter un service "Production Après-Midi" dont les horaires seront 13h-20h.}\\
+	\textit{Ajouter les horaires 16h-5h pour le service "Astreinte"}\\
+	\textit{Ajouter un nouvel employé "Abdoul" au service "Production Après-Midi".}\\
+\end{frame}
+
+\begin{frame}{Modifier un enregistrement}
+	\begin{small}
+		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
+	\end{small}	
+	\begin{alertblock}{Clause UPDATE}
+		UPDATE table SET colonne\_1 = 'valeur 1', colonne\_2 = 'valeur 2', ... WHERE conditions;
+	\end{alertblock}
+	\textit{Augmenter le salaire des employes de "Astreinte" de 30\%}\\
+	\textit{L'employé Tom change de service et passe à l'après midi }\\
+\end{frame}
+
+\begin{frame}{Supprimer un enregistrement}
+	\begin{small}
+		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
+	\end{small}	
+	\begin{alertblock}{Clause DELETE FROM}
+		DELETE FROM table WHERE conditions;
+	\end{alertblock}
+	\textit{Supprimer le service de production après-midi.}\\
+\end{frame}
+
+\section{Modifier le schéma}
+\begin{frame}
+\begin{center}
+{\LARGE \textbf{Modifier le schéma}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Créer une table}
+	\begin{alertblock}{CREATE TABLE}
+	CREATE TABLE \textit{ma\_table} (\\
+    \textit{colonne1}		TEXT,\\
+	\textit{colonne2}		INTEGER\\
+);
+	\end{alertblock}
+	\textit{Ajouter une table "ordre\_fabrication" avec 4 colonnes: id (le numéro d'OF), nom (l'employé qui va produire l'OF), reference\_piece (la référence de pièce à produire)}
+\end{frame}
+
+\begin{frame}{Supprimer une table}
+	\begin{alertblock}{DROP TABLE}
+	DROP TABLE \textit{ma\_table};
+	\end{alertblock}
+	\textit{Supprimer la table horaire.}
+\end{frame}
+
+
+\begin{frame}{Modifier une table}
+	\begin{alertblock}{ALTER TABLE}
+	ALTER TABLE ma\_table mon\_action ;\\
+	Avec mon\_action:
+	\begin{itemize}
+		\item ADD ma\_colonne INTEGER/TEXT/...
+		\item DROP ma\_colonne
+	\end{itemize}
+	\end{alertblock}
+	\textit{Ajouter la colonne quantite (le nombre de pièces à produire) à la table ordre\_fabrication. }
+\end{frame}
+
+
+
+
+ 
+\section{Les contraintes}
+\begin{frame}
+\begin{center}
+{\LARGE \textbf{Les contraintes}}
+\end{center}
+\pause
+\begin{itemize}
+	\item Règles qui restreignent les données dans la BDD.\\
+	\item Chaque contrainte est associée à une table.\\
+	\item Bloque tout ajout/modification qui viole les contraintes.
+	\item Garantis \textbf{certains} aspects de la cohérence de la BDD.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Clé Primaire}
+	\begin{alertblock}{PRIMARY KEY}
+		CONSTRAINT \textit{ma\_clé\_primaire} PRIMARY KEY (\textit{colonne1})\\
+		Unique et non nulle.\\
+		Identifie l'enregistrement/ligne.\\
+	\end{alertblock}
+	
+	\textit{Modifier le nom de Peter en John. Que ce passe il ? }\\
+\vspace*{1em}
+	Remarque: Si la clé primaire n'est pas définie à la création de la table \pause c'est l'ensemble des colonnes, cad la ligne entière.
+	
+	
+\end{frame}
+
+\begin{frame}{Clé Secondaire}
+	\begin{alertblock}{UNIQUE}
+		CONSTRAINT \textit{ma\_clé\_secondaire} UNIQUE (\textit{colonne1})\\
+		Unique mais peut être nulle.
+	\end{alertblock}
+	\textit{Avec la commande psql "\\d+ employes", trouver une clé secondaire de la table employes et expliquer sont sens.}\\	
+\end{frame}
+
+\begin{frame}{Clé étrangère}
+	\begin{alertblock}{FOREIGN KEY}
+		CONSTRAINT \textit{ma\_clé\_étrangère} FOREIGN KEY (colonne1) REFERENCES table\_etrangère(colonneX))\\
+		Assure l'intégrité référentielle.\\
+		Existe nécessairement dans la table de référence.
+	\end{alertblock}
+	\begin{block}{Et si la clé de référence disparait ?}
+		Trois options:
+		\begin{itemize}
+			\item ON DELETE RESTRICT
+			\item ON DELETE CASCADE
+			\item ON DELETE SET NULL
+		\end{itemize}				
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Check}
+	\begin{alertblock}{CHECK}
+		CONSTRAINT \textit{mon\_check} CHECK (condition)\\
+	\end{alertblock}
+	Remarque: Même genre de conditions que dans un WHERE.
+	\vspace*{1em}
+	\textit{En lisant le fichier fabriqueBDD.sql: quelle contrainte CHECK existe sur la table employes ?}\\
+	\textit{Quelle contrainte devrait on ajouter sur la colonne salaire ?}\\
+\end{frame}
+
+
+
+
+\section{Les transactions}
+\begin{frame}
+\begin{center}
+{\LARGE \textbf{Les transactions}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Le problème}
+	\begin{verbatim}
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+    
+UPDATE branches SET balance = balance - 100.00
+    WHERE name = (SELECT branch_name 
+                  FROM accounts 
+                  WHERE name = 'Alice');
+                 
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Bob';
+    
+UPDATE branches SET balance = balance + 100.00
+    WHERE name = (SELECT branch_name 
+                  FROM accounts 
+                  WHERE name = 'Bob');
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{La solution}
+	\begin{verbatim}
+BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+-- etc etc
+COMMIT;
+    \end{verbatim}
+    Le SGBDR garantis des transactions ACID:
+	\begin{itemize}
+		\item \textbf{A}tomicité
+		\item \textbf{C}ohérence
+		\item \textbf{I}solation
+		\item \textbf{D}urabilité
+	\end{itemize}
+    
+\end{frame}
+
+
+\end{document}
