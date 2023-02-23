@@ -219,13 +219,35 @@ UPDATE branches SET balance = balance + 100.00
 \end{frame}
 
 \begin{frame}[fragile]{La solution}
+\begin{block}{Je valide une transaction avec COMMIT}
 	\begin{verbatim}
 BEGIN;
 UPDATE accounts SET balance = balance - 100.00
     WHERE name = 'Alice';
 -- etc etc
-COMMIT;
+COMMIT; 
     \end{verbatim}
+\end{block}
+\begin{alertblock}{J'annule une transaction avec COMMIT}
+	\begin{verbatim}
+BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+-- etc etc
+ROLLBACK; 
+    \end{verbatim}    
+\end{alertblock}    
+    Le SGBDR garantis des transactions ACID:
+	\begin{itemize}
+		\item \textbf{A}tomicité
+		\item \textbf{C}ohérence
+		\item \textbf{I}solation
+		\item \textbf{D}urabilité
+	\end{itemize}
+    
+\end{frame}
+
+\begin{frame}[fragile]{La solution}
     Le SGBDR garantis des transactions ACID:
 	\begin{itemize}
 		\item \textbf{A}tomicité

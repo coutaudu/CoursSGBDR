@@ -43,7 +43,11 @@
 -- [9] Les aggrégats: Clauses GROUP BY et HAVING
 -- Afficher la masse salariale de chaque service.
 -- Afficher le salaire moyen par adresse.
--- Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.
+-- Afficher le salaire moyen des groupes d'employés dont le salaire moyen du service est supérieur à 120
+SELECT service_id, AVG(salaire) AS salaire_moyen
+FROM employes
+GROUP BY service_id
+HAVING AVG(salaire) > 120;
 
 -- [10] Insérer: Clause INSERT INTO
 -- Ajouter un nouvel employé dans le service "Production"
