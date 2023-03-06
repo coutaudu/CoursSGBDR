@@ -45,21 +45,139 @@
 
 \begin{frame}{Désactiver temporairement une contrainte}
 	\textbf{Problème:} Les contraintes peuvent rendre très difficile voire impossible les manipulations de la BDD.\\
-	\textbf{Solution:} Désactiver \underline{temporairement} les contraintes, cad le temps d'une transaction.
+	\textbf{Solution:} Désactiver \underline{temporairement} les contraintes (cad le temps d'une transaction).
 	\begin{alertblock}{}
-		SET CONSTRAINTS { ALL | name [, ...] } { DEFERRED | IMMEDIATE }
+		SET CONSTRAINTS \textit{ma\_contrainte} DEFERRED;
 	\end{alertblock}
-\end{frame}
-
-
-\section{Les triggers}
-
-
-\begin{frame}{Créer une table}
-	\begin{alertblock}{}
 		
-	\end{alertblock}
+	Remarque: PostgreSQL ne permet pas de différer les contraintes NOT NULL et CHECK.\\
+	\vspace{1em}
+	
+
+
+	
 \end{frame}
+
+\begin{frame}{Désactiver temporairement toutes les contraintes}
+	\begin{alertblock}{}
+		SET CONSTRAINTS \textit{ALL} DEFERRED;
+	\end{alertblock}
+	
+	\textit{Mettre à jour la BDD \textit{fabrique}.}
+	\textit{Observer les contraintes.}
+	\textit{Faire une transaction pour intégrer à la base \textit{fabrique} les employés Ozgur et Marie dans le nouveau service "IT".}\\
+	
+\end{frame}
+
+\begin{frame}{Valeurs par default}
+	\begin{block}{Autoriser/interdire le DEFFERED.}
+	A la creation de la table / contrainte:
+		\begin{itemize}
+			\item DEFERRABLE
+			\item NOT DEFERRABLE
+		\end{itemize}
+	\end{block}
+	
+	\begin{block}{Contrôle de la contrainte par default:}
+	A la creation de la table / contrainte:
+		\begin{itemize}
+			\item INITIALLY DEFERRED
+			\item INITIALLY IMMEDIATE
+		\end{itemize}
+	\end{block}
+
+	\begin{alertblock}{}
+{\scriptsize ALTER TABLE ma\_table\\ ADD CONSTRAINT ma\_nouvelle\_contrainte\\ FOREIGN KEY (ma\_colonne) REFERENCES mon\_autre\_table(autre\_colonne)\\ DEFERRABLE INITIALLY DEFERRED;}
+	\end{alertblock}
+
+\end{frame}
+
+\section{Quelques points pratiques pour PostgreSQL}
+\begin{frame}{Extraire les résultats des requêtes}
+	\begin{block}{La commande \textbackslash o}
+		\textbackslash o \textit{mon\_fichier\_de\_sortie}\\
+		\textit{... mes commandes sql ...}\\
+		\textbackslash o \textit{-{-} Désactive la sortie vers le fichier, retour à la ligne de commande.}
+	\end{block}
+	\begin{block}{La commande \textbackslash copy}
+	\textbackslash COPY (SELECT * FROM employes) TO './mon\_fichier\_de\_sortie.csv' WITH DELIMITER AS ',' CSV HEADER;
+	\end{block}	
+\end{frame}
+
+\begin{frame}[t]{Exécuter un script directement depuis la console}
+	\textit{{\footnotesize Cad sans être au préalable connecté dans l'interface psql.}}
+	\begin{block}{L'option -f}
+		psql -f \textit{mon\_fichier\_de\_script.sql} \textit{ma\_base\_de\_donnees} \textit{mon\_utilisateur}\\
+		\begin{itemize}
+			\item Se connecte à la base de donnée,
+			\item exécute le script \textit{mon\_fichier\_de\_script.sql},
+			\item puis quitte.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Passer le mot de passe en ligne de commande}
+	\begin{block}{}
+		{\small psql postgresql://utilisateur:mot\_de\_passe@localhost:5432/ma\_bdd}
+	\end{block}
+	
+	Dans notre cas:\\ \textit{psql postgresql://postgres:postgres@localhost:5432/fabrique}\\
+
+	\vspace{1em}
+	\textit{- Faire un script (batch), exécutable par une simple double clic, qui extrait la table employes de la BDD fabrique, au format csv.}\\
+	\textit{- Ajouter un fichier de log doit être générer afin de pouvoir vérifier la bonne exécution du script.}
+	
+
+\end{frame}
+
+
+\begin{frame}{Les variables psql: assignation et utilisation}
+	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
+		\textbackslash set nom\_de\_variable valeur
+	\end{block}
+
+	\begin{block}{Utiliser une variable}
+		SELECT * FROM ma\_table WHERE colonne1=\textbf{:}nom\_de\_variable
+	\end{block}
+	
+	\textit{Faire un script qui créé un nouveau service, y ajoute 1 employé et le déclare comme chef du service. Utiliser des variables déclarées et assignées en début de script.}
+	
+\end{frame}
+
+\begin{frame}{Les variables psql: assignations "avancée"}
+	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
+		\textbackslash set mon\_nom\_de\_variable valeur
+	\end{block}
+
+	\begin{block}{Déclarer et assigner une variable en argument de la connexion à psql}
+		psql -v var1='Ulysse' -v variable2=130 -v v3="'Maintenance'"
+	\end{block}
+	
+	\begin{block}{Lire dynamiquement une variable dans un script psql}
+		\textbackslash prompt 'Svp, entrez la valeur pour variable1: ' variable1
+	\end{block}
+
+	\textit{Reprendre le script précédent et le rendre dynamique. Cad l'utilisateur doit taper les valeurs à ajouter.}	
+	
+\end{frame}
+
+
+
+
+%COPY (select * from employes) TO 'C:\Program Files\PostgreSQL\15\data\testCopy.csv
+%' WITH DELIMITER AS ',' CSV HEADER;
+%\section{Les triggers}
+%
+%
+%\begin{frame}{Qu'est ce qu'un trigger ?}
+%	\begin{block}{Trigger: }
+%		Une fonction SQL (cad ensemble de commandes SQL).\\
+%		Rattaché à une table.
+%		Déclenché automatiquement.\\
+%		Lors d'un événement (cad INSERT/UPDATE/DELETE).
+%	\end{block}
+%\end{frame}
 
 
 

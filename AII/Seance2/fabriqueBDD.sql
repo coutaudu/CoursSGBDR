@@ -10,14 +10,10 @@ CREATE DATABASE "fabrique" WITH
 	
 \c fabrique
 	
-DROP TABLE IF EXISTS employes;
-
-
-DROP TABLE IF EXISTS horaires;
 
 CREATE TABLE horaires (
     service			TEXT PRIMARY KEY,
-	debut			INTEGER,
+	debut			INTEGER ,
 	fin				INTEGER
 );
 	
@@ -33,6 +29,12 @@ CREATE TABLE employes (
 	CONSTRAINT email_unique UNIQUE (email)
 );
 
+CREATE TABLE chefs (
+	prenom			TEXT,
+	service			TEXT PRIMARY KEY,
+	CONSTRAINT service_existant FOREIGN KEY (service) REFERENCES horaires(service),
+	CONSTRAINT employe_existant FOREIGN KEY (prenom) REFERENCES employes(prenom)
+	);
 
 INSERT INTO horaires VALUES ('Production',5,13);
 INSERT INTO horaires VALUES ('Maintenance',8,16);
@@ -43,4 +45,14 @@ INSERT INTO employes VALUES ('John',120,'Randwick','john@fabrique.com','Producti
 INSERT INTO employes VALUES ('Mary',130,'Wollolong',NULL,'Maintenance');
 INSERT INTO employes VALUES ('Peter',110,'Randwick',NULL,'Stock');
 INSERT INTO employes VALUES ('Tom',120,'Botany Bay',NULL,'Production');
+INSERT INTO employes VALUES ('Idir',110,'Villeurbanne',NULL,'Production');
 INSERT INTO employes VALUES ('Pats',130,'Botany Bay',NULL,'Astreinte');
+
+INSERT INTO chefs VALUES ('Pats', 'Astreinte');
+INSERT INTO chefs VALUES ('Peter', 'Stock');
+INSERT INTO chefs VALUES ('John', 'Production');
+INSERT INTO chefs VALUES ('Mary', 'Maintenance');
+
+ALTER TABLE horaires ADD CONSTRAINT service_a_chef FOREIGN KEY (service) REFERENCES chefs(service);
+
+
