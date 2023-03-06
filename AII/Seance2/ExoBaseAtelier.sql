@@ -15,4 +15,6 @@
 -- Les operateurs sont formés à travailler sur certaines machines
 
 
+-- Pensez à intégrer les contraintes utiles dans le schéma de la base de données
+
 
