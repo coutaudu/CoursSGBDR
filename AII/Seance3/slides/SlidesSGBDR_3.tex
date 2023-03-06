@@ -34,14 +34,25 @@
 % Numerotations
 \addtobeamertemplate{navigation symbols}{} { \usebeamerfont{footline} \usebeamercolor[fg]{footline} \hspace{1em} \insertframenumber/\inserttotalframenumber }
 
-\author{Ulysse COUTAUD}
-
+\author{Ulysse COUTAUD\\\href{mailto:ulysse.coutaud@gmail.com}{\small ulysse.coutaud@gmail.com}}
 \date{}
 	
 \maketitle
 
 
-\section{Editer le schéma}
+\section{Les contraintes (suite)}
+
+
+\begin{frame}{Désactiver temporairement une contrainte}
+	\textbf{Problème:} Les contraintes peuvent rendre très difficile voire impossible les manipulations de la BDD.\\
+	\textbf{Solution:} Désactiver \underline{temporairement} les contraintes, cad le temps d'une transaction.
+	\begin{alertblock}{}
+		SET CONSTRAINTS { ALL | name [, ...] } { DEFERRED | IMMEDIATE }
+	\end{alertblock}
+\end{frame}
+
+
+\section{Les triggers}
 
 
 \begin{frame}{Créer une table}
@@ -50,23 +61,7 @@
 	\end{alertblock}
 \end{frame}
 
-\begin{frame}{Ajouter une colonne}
-	\begin{alertblock}{}
-		
-	\end{alertblock}
-\end{frame}
 
-\begin{frame}{Supprimer une colonne}
-	\begin{alertblock}{}
-		
-	\end{alertblock}
-\end{frame}
-
-\begin{frame}{Modifier une colonne}
-	\begin{alertblock}{}
-		
-	\end{alertblock}
-\end{frame}
 
 
 
