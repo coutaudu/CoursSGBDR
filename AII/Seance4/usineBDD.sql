@@ -1,18 +1,14 @@
 
 DROP DATABASE IF EXISTS "usine";
 
-CREATE DATABASE "usine" WITH
-    OWNER = postgres
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+CREATE DATABASE "usine" ;
 	
 \c usine
 	
 DROP TABLE IF EXISTS "salaries";
 
 CREATE TABLE salaries (
-    id 				INTEGER,
+    id 				INTEGER PRIMARY KEY,
 	prenom			TEXT,
 	nom				TEXT,
 	sexe			TEXT,
@@ -28,7 +24,7 @@ CREATE TABLE salaries (
 DROP TABLE IF EXISTS salles;
 
 CREATE TABLE salles (
-    id 				INTEGER,
+    id 				INTEGER PRIMARY KEY,
 	nom				TEXT,
 	superficie		REAL,
 	latitude		numeric,
@@ -37,7 +33,7 @@ CREATE TABLE salles (
 
 DROP TABLE IF EXISTS services;
 CREATE TABLE services (
-    id 				INTEGER,
+    id 				INTEGER PRIMARY KEY,
 	nom				TEXT,
 	effectif		INTEGER
 );

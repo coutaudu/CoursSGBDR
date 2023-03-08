@@ -7,13 +7,13 @@
 
 -- 1 Afficher le nom et l'effectif de chaque service
 
--- 2 Afficher le nom de toutes les salles de la fabrique.
+-- 2 Afficher le nom de toutes les salles de l'usine.
 
 -- 3 Afficher le nom et l'id de chaque salle.
 
 -- 4 Afficher le nom et la superficie de chaque salle.
 
--- 5 Afficher toutes les informations des salles de la fabrique.
+-- 5 Afficher toutes les informations des salles de l'usine.
 
 -- 6 Afficher toutes les informations sur les salaries.
 
@@ -33,7 +33,7 @@
 
 -- 14 Afficher les salaries du plus vieux au plus jeune.
 
--- 15 Afficher le nom et prénom du doyen de la fabrique.
+-- 15 Afficher le nom et prénom du doyen de l'usine.
 
 -- 16 Non, un homme.
 -- Le doyen est une doyenne. Afficher aussi le nom et prénom du doyen.
@@ -43,7 +43,7 @@
 
 -- 18 Afficher le prénom du 5eme salarié le plus jeunes du service.
 
--- 19 Il a déposé le carnet dans un petite pièce de la fabrique (moins de 40m2)
+-- 19 Il a déposé le carnet dans un petite pièce de l'usine (moins de 40m2)
 -- Afficher les id et nom des salles dont la superficie est inférieure à 40m2.
 
 -- 20 C'était la pièce la plus à l'Ouest
@@ -67,14 +67,14 @@
 
 -- 25 Afin d'y voir plus clair afficher la liste des services présents dans la salle 6  triés par ordre alphabétique et sans doublon.
 
--- 26 Afficher le service des 3 doyens de la fabrique.
+-- 26 Afficher le service des 3 doyens de l'usine.
 
--- 27 La table des services recensent tous les services qui ont existé dans la fabrique, mais certains ne comptent plus de salariés.
--- En utilisant une jointure, afficher le nom des services triés par ordre alphabétique qui n'ont plus de salariés dans la fabrique.
+-- 27 La table des services recensent tous les services qui ont existé dans l'usine, mais certains ne comptent plus de salariés.
+-- En utilisant une jointure, afficher le nom des services triés par ordre alphabétique qui n'ont plus de salariés dans l'usine.
 
 -- 28 Calculer et afficher l'effectif réel (employes affectés dans la salle) par salles
 
--- 29 Calculer et afficher la surface totale de la fabrique
+-- 29 Calculer et afficher la surface totale de l'usine
  
 -- 30 Calculer et afficher l'effectif par salles avec le nom des salles triés par ordre croissant.
 
