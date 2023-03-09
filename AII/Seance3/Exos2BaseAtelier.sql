@@ -21,5 +21,5 @@
 -- Faire un script qui demande à taper un type de machine, et retourne le nombre de machines de ce type.
 -- Faire un script qui demande à taper un métier, et retourne le nombre de salariés ayant ce métier.
 -- Faire un script qui demande à taper le nom d’un employé, et retourne la liste des machines sur lequel il est formé.
--- Faire un script qui demande à taper le nom d'une machine, et retourne le nombre de machines auquel il est formé.
+-- Faire un script qui demande à taper le nom d'une employé, et retourne le nombre de machines auquel il est formé.
 -- Faire un script qui demande à taper le nom d’une machine, et retourne la liste des employes qui sont formés à l’utiliser.
