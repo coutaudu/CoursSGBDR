@@ -79,11 +79,11 @@ IF %errorlevel% NEQ 0 (
 
 psql --help  >nul 2>nul
 IF %errorlevel% NEQ 0 (
-	ECHO Ajout des ex‚cutables PostgreSQL au PATH systŠme.
-	ECHO ATTENTION le poste va ˆtre red‚marr‚ !
+	ECHO Ajout des ex‚cutables PostgreSQL au PATH systcme.
+	ECHO ATTENTION le poste va etre red‚marr‚ !
 	CALL:ajoutePostgresBinSystemPathScript
 ) ELSE (
-	ECHO Le PATH est … jour.
+	ECHO Le PATH est a jour.
 )
 
 
