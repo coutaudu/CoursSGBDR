@@ -1,10 +1,7 @@
 
 DROP DATABASE IF EXISTS "usine";
-
 CREATE DATABASE "usine" ;
-	
 \c usine
-	
 DROP TABLE IF EXISTS "salaries";
 
 CREATE TABLE salaries (
