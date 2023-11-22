@@ -35,7 +35,7 @@
 \addtobeamertemplate{navigation symbols}{} { \usebeamerfont{footline} \usebeamercolor[fg]{footline} \hspace{1em} \insertframenumber/\inserttotalframenumber }
 
 
-\author{Ulysse COUTAUD\\\href{mailto:ulysse.coutaud@gmail.com}{\small ulysse.coutaud@gmail.com}}
+\author{Ulysse COUTAUD\\\href{mailto:coutaudu@gmail.com}{\small coutaudu@gmail.com}}
 \date{}
 	
 \maketitle
@@ -177,14 +177,24 @@ Rudiments des Bases de Données:
 
 
 \section{Le modèle relationnel}
-\begin{frame}{Le modèle relationnel}
+\begin{frame}[t]{Le modèle relationnel}
 		\begin{center}
 			Une TABLE = une "RELATION"
 	    \end{center}
 			\vspace{0.3em}
 	    	\includegraphics[width=0.8\textwidth]{./figures/relation.pdf}
 	    	\vspace{0.3em}
-	    	\pause
+
+\end{frame}
+
+
+\begin{frame}[t]{Le modèle relationnel}
+		\begin{center}
+			Une TABLE = une "RELATION"
+	    \end{center}
+			\vspace{0.3em}
+	    	\includegraphics[width=0.8\textwidth]{./figures/relation.pdf}
+	    	\vspace{0.3em}
 	    	\vspace*{0.3em}
 \begin{flushright}
 	    	\includegraphics[width=0.55\textwidth]{./figures/relation2.pdf}
@@ -268,7 +278,7 @@ Sensible à la casse: =, != ou <>
 	\end{alertblock}
 	
 		\textit{Afficher sans répétition la liste des services.}\\
-		\textit{Afficher sans répétition les débuts de services.}\\
+		\textit{Afficher sans répétition les horaires de débuts de services.}\\
 \end{frame}
 
 
@@ -306,11 +316,10 @@ Sensible à la casse: =, != ou <>
 \begin{footnotesize}
 	\begin{block}{Remarque}
 	 1: Le INNER JOIN est le JOIN par defaut, le mot clé "INNER" n'est pas nécessaire.
-	\\2: En cas d'ambiguité sur le nom de colonne, on ajoute en préfixe la table visé (ex: table1.colonne1). On peut également renommer la colonne résultat avec le mot clé "AS" (ex: table1.colonne1 AS T1C1)
+	\\2: En cas d'ambiguité sur le nom de colonne, on ajoute en préfixe la table visée (ex: table1.colonne1). On peut également renommer la colonne résultat avec le mot clé "AS" (ex: table1.colonne1 AS T1C1)
 	\end{block}
 \end{footnotesize}
 		
-		\textit{Afficher la jonction de toutes les informations de la BDD}\\
 		\textit{Afficher les horaires de John.}\\
 		\textit{Afficher les noms et horaires de tous les employés du service production.}\\
 \end{frame}
@@ -330,7 +339,7 @@ Sensible à la casse: =, != ou <>
 		Se filtre avec IS NULL ou IS NOT NULL
 	\end{block}
 \end{footnotesize}
-		
+		\textit{Afficher la jonction de toutes les informations de la BDD}\\
 		\textit{Afficher les prénoms des employés qui n'ont pas d'horaires.}\\
 
 \end{frame}

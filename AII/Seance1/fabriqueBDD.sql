@@ -8,17 +8,15 @@ CREATE DATABASE "fabrique" WITH
 	
 \c fabrique
 	
-DROP TABLE IF EXISTS "employes";
 
 CREATE TABLE employes (
 	prenom  		TEXT PRIMARY KEY,
 	salaire			INTEGER,
     adresse			TEXT,
-    service_id		TEXT
+    service		TEXT
 );
 
 
-DROP TABLE IF EXISTS horaires;
 
 CREATE TABLE horaires (
     service			TEXT PRIMARY KEY,
