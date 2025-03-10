@@ -1,0 +1,13 @@
+------------------------------------------------------------------------------------
+-- Pour la prochaine séance:
+-- Faire les requetes pour extraire les données:
+-- [1] Afficher les prénoms et les salaires des employés du service Maintenance.
+-- [2] Afficher le salaire le plus élevé du service production.
+-- [3] Afficher le salaire le plus élevé de l'entreprise
+-- [4] Afficher les prénoms des employés qui ne sont pas au service Production.
+-- [5] Afficher le salaire moyen par service.
+--
+-- Envoyer par mail à coutaudu@gmail.com
+-- Objet du mail: [L3PAII2025] Seance_1 NomDeFamille
+-- Fichier en pièce jointe: L3PAII2025_Seance1_Prenom_NomDeFamille_NumeroEtudiant.sql
+------------------------------------------------------------------------------------
