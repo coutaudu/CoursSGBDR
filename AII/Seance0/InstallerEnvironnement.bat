@@ -1,6 +1,6 @@
 ::  **********************************************************
 ::  Ulysse COUTAUD
-::  ulysse.coutaud@gmail.com
+::  coutaudu@gmail.com
 ::  https://github.com/coutaudu/SGBDR_L3PAII
 ::  **********************************************************
 @ECHO OFF
@@ -18,7 +18,7 @@ SET CHEMIN_INSTALL_NPP=C:\Program Files\Notepad++\
 SET CHEMIN_INSTALL_GIT=C:\Program Files\Git
 
 IF NOT EXIST "%CHEMIN_INSTALL_POSTGRES%%VERSION_POSTGRES%" (
-   ECHO 	Le r‚pertoire %CHEMIN_INSTALL_POSTGRES%%VERSION_POSTGRES% n'existe pas.
+   ECHO 	Le râ€špertoire %CHEMIN_INSTALL_POSTGRES%%VERSION_POSTGRES% n'existe pas.
    ECHO     Installe PostgreSQL
    ECHO 	https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
    ECHO     Puis relance le script d'installation.
@@ -36,11 +36,11 @@ IF %errorlevel% NEQ 0 (
    EXIT
 )
 
-ECHO PostgreSQL est install‚.
+ECHO PostgreSQL est installâ€š.
 
 
 IF NOT EXIST "%CHEMIN_INSTALL_NPP%" (
-   ECHO 	Le r‚pertoire %CHEMIN_INSTALL_NPP% n'existe pas.
+   ECHO 	Le râ€špertoire %CHEMIN_INSTALL_NPP% n'existe pas.
    ECHO     Installe Notepad++
    ECHO 	https://notepad-plus-plus.org/downloads
    ECHO     Puis relance le script d'installation.
@@ -48,11 +48,11 @@ IF NOT EXIST "%CHEMIN_INSTALL_NPP%" (
    EXIT
 )
 
-ECHO Notepad++ est install‚.
+ECHO Notepad++ est installâ€š.
 
 
 IF NOT EXIST "%CHEMIN_INSTALL_GIT%" (
-   ECHO 	Le r‚pertoire %CHEMIN_INSTALL_NGIT% n'existe pas.
+   ECHO 	Le râ€špertoire %CHEMIN_INSTALL_NGIT% n'existe pas.
    ECHO     Installe Notepad++
    ECHO 	https://gitforwindows.org/
    ECHO     Puis relance le script d'installation.
@@ -60,7 +60,7 @@ IF NOT EXIST "%CHEMIN_INSTALL_GIT%" (
    EXIT
 )
 
-ECHO GIT est install‚.
+ECHO GIT est installâ€š.
 
 
 IF EXIST "%HOMEPATH%\Documents\SGBDR_L3PAII" (
@@ -79,8 +79,8 @@ IF %errorlevel% NEQ 0 (
 
 psql --help  >nul 2>nul
 IF %errorlevel% NEQ 0 (
-	ECHO Ajout des ex‚cutables PostgreSQL au PATH systcme.
-	ECHO ATTENTION le poste va etre red‚marr‚ !
+	ECHO Ajout des exâ€šcutables PostgreSQL au PATH systcme.
+	ECHO ATTENTION le poste va etre redâ€šmarrâ€š !
 	CALL:ajoutePostgresBinSystemPathScript
 ) ELSE (
 	ECHO Le PATH est a jour.

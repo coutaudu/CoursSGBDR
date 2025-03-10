@@ -72,7 +72,7 @@
 
 \begin{frame}[t]{Système de Gestion de Base de Données (SGBD) ?}
 	     \begin{exampleblock}{}
-	     	Ensemble d'outils permettant \textbf{l'organisation, le contrôle, la consultation et la modification} d'une base de donnée.
+	     	Ensemble d'outils permettant \textbf{l'organisation, le contrôle, la consultation et la modification} d'une base de données.
 	     \end{exampleblock}
   \begin{columns}
 	    \begin{column}{0.6\textwidth}
@@ -99,18 +99,18 @@
 \end{frame}
 
 \begin{frame}{Un exemple}
-Un outil de gestion d'atelier: GEDIX.
+Tracabilité et contrôle de flux dans l'industrie automobile.
 \end{frame}
 
 \begin{frame}{Dans ce cours}
 Rudiments des Bases de Données:
 \begin{itemize}
-	\item Le modèle "relationnel"
-	\item Le langage SQL
-	\item PostgreSQL
-	\item Lire les données
-	\item Modifier les données
-	\item Concevoir une base de données simple
+	\item Le modèle "relationnel".
+	\item Le langage SQL.
+	\item PostgreSQL.
+	\item Lire les données.
+	\item Modifier les données.
+	\item Concevoir une base de données simple.
 \end{itemize}
 \end{frame}
 
@@ -119,17 +119,17 @@ Rudiments des Bases de Données:
 \begin{frame}{Un peu de vocabulaire}
 	\begin{itemize}
 		\item \textbf{BDD} Base De Données
-		\item \textbf{DB} Database
+		\begin{itemize} \footnotesize \item \textbf{DB} Database \end{itemize}
 	\end{itemize}
 	\vspace{1em}
 	\begin{itemize}
 		\item \textbf{SGBD} Système de Gestion de Base de Données 
-		\item \textbf{DBMS} Data Base Management System
+		\begin{itemize} \footnotesize \item \textbf{DBMS} Data Base Management System \end{itemize}
 	\end{itemize}
 	\vspace{1em}
 	\begin{itemize}
 			\item \textbf{SGBDR} Système de Gestion de Base de Données Relationnelles
-			\item \textbf{RDBMS} Relational Database Management System 
+			\begin{itemize} \footnotesize \item \textbf{RDBMS} Relational Database Management System  \end{itemize}
 	\end{itemize}
 	\vspace{1em}
 %	\begin{itemize}
@@ -137,7 +137,7 @@ Rudiments des Bases de Données:
 %	\end{itemize}
 	
 	\begin{itemize}
-		\item \textbf{SQL} Structured Query Language : Norme/langage de manipulation de données relationnelles.
+		\item \textbf{SQL} Structured Query Language : Norme\footnote{{\scriptsize ISO/IEC 9075-1:2023}} de langage de manipulation de données relationnelles.
 	\end{itemize}
 \end{frame}
 
@@ -167,7 +167,7 @@ Rudiments des Bases de Données:
 			\item \textbf{PostgreSQL}
 			\item Open source
 			\item Université de Berkeley
-			\item Très populaire et répandu \footnote{{\tiny \url{https://db-engines.com/en/ranking_trend/relational+dbms}}}
+			\item Populaire et répandu \footnote{{\tiny \url{https://db-engines.com/en/ranking_trend/relational+dbms}}}
 		\end{itemize} 
 	    \end{column}
 
@@ -215,7 +215,7 @@ Rudiments des Bases de Données:
 	\end{center}
 	\begin{itemize}
 		\item Ouvrir ligne de commande (Win + cmd)
-		\item Taper "psql fabrique postgres"
+		\item Taper "psql atelier postgres"
 		\item Entrer le mot de passe "postgres"
 		\item Lister les tables de la BDD courante \textbackslash dt
 	\end{itemize}		
@@ -389,6 +389,14 @@ Sensible à la casse: =, != ou <>
 	Equivalent de WHERE pour les expressions.
 	\end{alertblock}
 	\textit{Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.}\\
+\end{frame}
+
+
+\begin{frame}{Votre nouveau meilleur ami:}
+\begin{large}
+\begin{center}
+	\href{https://sql.sh/}{\textbf{https://sql.sh/}}
+\end{center}\end{large}
 \end{frame}
 
 

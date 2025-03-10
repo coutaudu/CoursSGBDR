@@ -6,7 +6,7 @@
    version="1.2"
    id="svg683"
    sodipodi:docname="relation.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,12 +23,12 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="1.468073"
-     inkscape:cx="203.66835"
-     inkscape:cy="143.38524"
+     inkscape:cx="212.18291"
+     inkscape:cy="159.05204"
      inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="surface7102" />
   <defs
@@ -441,41 +441,7 @@
     </g>
     <g
        style="fill:rgb(0%,0%,0%);fill-opacity:1;"
-       id="g158">
-      <use
-         xlink:href="#glyph0-1"
-         x="52.8"
-         y="65.4"
-         id="use148" />
-      <use
-         xlink:href="#glyph0-2"
-         x="58.17648"
-         y="65.4"
-         id="use150" />
-      <use
-         xlink:href="#glyph0-3"
-         x="64.56864"
-         y="65.4"
-         id="use152" />
-      <use
-         xlink:href="#glyph0-4"
-         x="70.5744"
-         y="65.4"
-         id="use154" />
-      <use
-         xlink:href="#glyph0-5"
-         x="75.2112"
-         y="65.4"
-         id="use156" />
-    </g>
-    <g
-       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
        id="g164">
-      <use
-         xlink:href="#glyph0-6"
-         x="80.63184"
-         y="65.4"
-         id="use160" />
       <use
          xlink:href="#glyph0-5"
          x="86.12976"
@@ -1707,7 +1673,7 @@
        style="font-style:normal;font-weight:normal;font-size:13.3333px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect50654);fill:#aa0000;fill-opacity:1;stroke:none"><tspan
          x="-4.4277344"
          y="22.695283"
-         id="tspan62162">Clé primaire</tspan></text>
+         id="tspan1961">Clé primaire</tspan></text>
     <path
        style="fill:none;stroke:#aa0000;stroke-width:0.75px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
        d="m 49.299319,45.467766 c -2.724783,4.257473 -5.449443,8.514755 -4.868631,12.931103 0.580811,4.416347 4.466288,8.991147 8.351079,13.565141"
@@ -1748,10 +1714,10 @@
      transform="translate(5.0573924,8.3085732)"><tspan
        x="311.91077"
        y="57.342274"
-       id="tspan62164">Schéma de la </tspan><tspan
+       id="tspan1963">Schéma de la </tspan><tspan
        x="311.91077"
        y="69.342274"
-       id="tspan62166">relation</tspan></text>
+       id="tspan1965">relation</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:10px;line-height:1;font-family:sans-serif;white-space:pre;inline-size:121.298;fill:#ff7000;fill-opacity:1;stroke:none;stroke-width:0.75"
@@ -1761,7 +1727,7 @@
      transform="translate(-8.281128,51.369877)"><tspan
        x="311.91077"
        y="57.342274"
-       id="tspan62168">Ligne/&quot;enregistrement&quot;</tspan></text>
+       id="tspan1967">Ligne/&quot;enregistrement&quot;</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:12px;line-height:1;font-family:sans-serif;white-space:pre;inline-size:121.298;fill:#0055d4;fill-opacity:1;stroke:none;stroke-width:0.75"
@@ -1771,7 +1737,7 @@
      transform="translate(-172.82619,-17.661139)"><tspan
        x="311.91077"
        y="57.342274"
-       id="tspan62170">Colonne/attribut</tspan></text>
+       id="tspan1969">Colonne/attribut</tspan></text>
   <rect
      style="fill:none;fill-rule:evenodd;stroke:#ff8000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect31001"

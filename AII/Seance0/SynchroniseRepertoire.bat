@@ -1,13 +1,13 @@
 ::  **********************************************************
 ::  Ulysse COUTAUD
-::  ulysse.coutaud@gmail.com
+::  coutaudu@gmail.com
 ::  https://github.com/coutaudu/SGBDR_L3PAII
 ::  **********************************************************
 @ECHO OFF
 SET fichierLogGit=git.log
 
 ECHO:
-ECHO Mise à jour du dossier SGBDR_L3PAII.
+ECHO Mise Ã  jour du dossier SGBDR_L3PAII.
 ECHO:
 
 git reset --hard  > %fichierLogGit%
@@ -30,5 +30,5 @@ IF %errorlevel% NEQ 0 (
 )
 DEL %fichierLogGit% >nul
 
-ECHO Le r‚pertoire a ‚t‚ synchronis‚.
+ECHO Le râ€špertoire a â€štâ€š synchronisâ€š.
 PAUSE
