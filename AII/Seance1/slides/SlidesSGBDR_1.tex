@@ -214,45 +214,47 @@ Rudiments des Bases de Données:
 	    	\end{figure}
 	\end{center}
 	\begin{itemize}
-		\item Ouvrir ligne de commande (Win + cmd)
-		\item Taper "psql atelier postgres"
-		\item Entrer le mot de passe "postgres"
-		\item Lister les tables de la BDD courante \textbackslash dt
+		\item Ouvrir une console (Win + cmd) et taper la commande "psql atelier postgres",
+		\item Ou bien double clicker sur le script Documents\textbackslash SGBDR\_L3PAII\textbackslash fabriqueBDDConnectCLI.bat .
+		\item Entrer le mot de passe "postgres".
+		\item Lister les tables de la BDD courante \textbackslash dt.
 	\end{itemize}		
 \end{frame}
 
 \begin{frame}{Clause SELECT}
-	BDD "atelier":
- 	\begin{center}
-	    	\includegraphics[width=0.85\textwidth]{./figures/BDDatelier.pdf}
-	\end{center}
 	\begin{alertblock}{Afficher toute la table}
 		SELECT * FROM nom\_table;
 	\end{alertblock}
 	\begin{alertblock}{Afficher certaines colonnes}
-		SELECT colonne1, colonne2 FROM table;
+		SELECT colonne1, colonne2 FROM nom\_table;
 	\end{alertblock}
+	
+\begin{scriptsize}
+	BDD "atelier":
+ 	\begin{center}
+	    	\includegraphics[width=0.85\textwidth]{./figures/BDDatelier.pdf}
+	\end{center}
 		\textit{Afficher les prénoms et salaires des employés.}\\
 		\textit{Afficher toutes les informations des employés.}
+\end{scriptsize}
 \end{frame}
 
 \begin{frame}[t]{Clause SELECT avec contraintes}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	\begin{alertblock}{}
-		SELECT colonne1, colonne2 FROM tableau WHERE condition1 AND/OR NOT condition2;
+\begin{alertblock}{Afficher les lignes validant la condition}
+		SELECT colonne1, colonne2 \\FROM nom\_table \\WHERE condition1; %% AND/OR NOT condition2;
 	\end{alertblock}
-	
+
 \begin{footnotesize}
- \begin{columns}
-    \begin{column}{0.5\textwidth}
+	%\vspace{-2em}
+ \begin{columns}[t]
+    \begin{column}{0.45\textwidth}
 	\begin{block}{Nombres:}
 		=, !=, <, <=, >, >=,
 		\\BETWEEN nombre1 AND nombre2,
 		\\IN (nombre1, nombre2, nombre3)
 	\end{block}
 	    \end{column}
-	    \begin{column}{0.5\textwidth}
+	    \begin{column}{0.55\textwidth}
 		\begin{block}{Texte:}
 Sensible à la casse: =, != ou <> 
 \\Non sensible à la casse: LIKE (caractère joker: \%)
@@ -260,74 +262,89 @@ Sensible à la casse: =, != ou <>
 	\end{block}
 		    \end{column}
 	    \end{columns}
-
 \end{footnotesize}
+
+\begin{scriptsize}
+\vspace{1em}
+BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+\vspace{0.5em}
 		\textit{Afficher les prénoms des employés du service production.}\\
 		\textit{Afficher les prénoms des employés qui gagne 110 ou moins.}\\
 		\textit{Afficher les prénoms des employés dont l'adresse contient la chaine "an".}\\
 		\textit{Afficher les prénoms et salaires des employés du service Production et Maintenance.}\\
+\end{scriptsize}
 \end{frame}
 
 
 \begin{frame}[t]{Filtrer les résultats}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+	
 	\begin{alertblock}{Clause DISTINCT}
-		SELECT DISTINCT colonne1 FROM table;
+		SELECT DISTINCT colonne1 FROM nom\_table;
 	\end{alertblock}
 	
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 		\textit{Afficher sans répétition la liste des services.}\\
 		\textit{Afficher sans répétition les horaires de débuts de services.}\\
+\end{scriptsize}
 \end{frame}
 
 
-\begin{frame}[t]{Filtrer les résultats}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+\begin{frame}[t]{Trier les résultats}
+
 	\begin{alertblock}{Clause ORDER BY}
-		SELECT colonne1 FROM table ORDER BY colonne1 ASC/DESC;
+		SELECT colonne1\\FROM nom\_table\\ORDER BY colonne1 ASC/DESC;
 	\end{alertblock}
 	
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 		\textit{Afficher toutes les informations sur les employes en les triants par ordre alphabétique sur les prénoms.}\\
 		\textit{Afficher prénoms et adresses des employes en triant par salaires décroissants.}\\
+\end{scriptsize}
 \end{frame}
 
 
-\begin{frame}[t]{Filtrer les résultats}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+\begin{frame}[t]{Limiter les résultats}
+
 	\begin{alertblock}{Clauses LIMIT et OFFSET}
-		SELECT colonne1 FROM table LIMIT num\_limit OFFSET num\_offset;
+		SELECT colonne1 \\FROM table \\LIMIT num\_limit OFFSET num\_offset;
 	\end{alertblock}
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 		\textit{Afficher l'employé le moins bien payé.}\\
 		\textit{Afficher le deuxieme employé le moins bien payé.}\\
+\end{scriptsize}
 \end{frame}
 
-\begin{frame}[t]{Requêtes sur plusieurs tables}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+\begin{frame}[t]{Joindre des tables}
+
 	\begin{alertblock}{Clause INNER JOIN}
-		SELECT colonne1 FROM table1 INNER JOIN table2 ON table1.colonneX=table2.colonneY;
+		SELECT colonne1 \\FROM nom\_table1 \\INNER JOIN nom\_table2 \\ON table1.colonneX=table2.colonneY;
 	\end{alertblock}
 \begin{footnotesize}
 	\begin{block}{Remarque}
-	 1: Le INNER JOIN est le JOIN par defaut, le mot clé "INNER" n'est pas nécessaire.
+	 1: Le INNER JOIN est le JOIN par defaut, le mot clé "INNER" n'est pas nécessaire. Il est même très souvent omis.
 	\\2: En cas d'ambiguité sur le nom de colonne, on ajoute en préfixe la table visée (ex: table1.colonne1). On peut également renommer la colonne résultat avec le mot clé "AS" (ex: table1.colonne1 AS T1C1)
 	\end{block}
 \end{footnotesize}
 		
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 		\textit{Afficher les horaires de John.}\\
 		\textit{Afficher les noms et horaires de tous les employés du service production.}\\
+\end{scriptsize}
 \end{frame}
 
-\begin{frame}[t]{Requêtes sur plusieurs tables}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+\begin{frame}[t]{Joindre des tables}
+
 	\begin{alertblock}{LEFT JOIN}
 		Il y aura forcément chacune des lignes de table1. Si aucune correspondance avec table2: NULL.
 	\end{alertblock}
@@ -339,27 +356,35 @@ Sensible à la casse: =, != ou <>
 		Se filtre avec IS NULL ou IS NOT NULL
 	\end{block}
 \end{footnotesize}
+
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 		\textit{Afficher la jonction de toutes les informations de la BDD}\\
 		\textit{Afficher les prénoms des employés qui n'ont pas d'horaires.}\\
+\end{scriptsize}
 
 \end{frame}
 
 \begin{frame}[t]{Les expressions}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+
 	\begin{alertblock}{}
-	SELECT colonne1, colonne2  * 10 AS colonne2\_pourcent FROM table;\\
-	SELECT colonne1, colonne2 FROM table WHERE colonne2 * 10 > 80;
+	SELECT colonne1, \textbf{colonne2  * 10 AS colonne2}\_pourcent \\FROM nom\_table;\\
+	SELECT colonne1, colonne2 FROM nom\_table \\WHERE colonne2 * 10 > 80;
 	\end{alertblock}
 
+\begin{scriptsize}
+	\vspace{1em}
+	BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+	\vspace{0.5em}
 	\textit{Les salaires de la base sont journaliers. Afficher les prénoms et salaires mensuels (20 jours travaillés).}
+\end{scriptsize}
+	
 \end{frame}
 
 \begin{frame}[t]{Les aggrégats}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
+
 	\begin{alertblock}{}
 	SELECT COUNT(colonne1) from table;
 	\end{alertblock}
@@ -367,28 +392,36 @@ Sensible à la casse: =, != ou <>
 		COUNT, MIN, MAX, AVG, SUM.	
 	\end{block}
 
+\begin{scriptsize}
+		\vspace{1em}
+		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+		\vspace{0.5em}
 	\textit{Afficher le nombre d'employés.}\\
 	\textit{Afficher le salaire minimal.}\\
 	\textit{Afficher le salaire moyen.}\\
 	\textit{Afficher la masse salariale totale.}\\
 
+\end{scriptsize}
 \end{frame}
 
 \begin{frame}[t]{Les aggrégats}
-\begin{small}
-		BDD "atelier": \\employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)
-\end{small}	
 	\begin{alertblock}{Clause GROUP BY}
 	SELECT colonne1, SUM(colonne2) FROM table GROUP BY colonne1;
 	Applique la fonction d'aggrégat à chaque groupe ayant la même valeur en colonne1.
 	\end{alertblock}
+	
+\begin{scriptsize}
+	\vspace{1em}
+	BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
+	\vspace{0.5em}
 	\textit{Afficher la masse salariale de chaque service.}\\
 	\textit{Afficher le salaire moyen par adresse.}\\
+\end{scriptsize}
 	
 	\begin{alertblock}{Clause HAVING}
 	Equivalent de WHERE pour les expressions.
 	\end{alertblock}
-	\textit{Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.}\\
+\begin{scriptsize}	\textit{Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.}\\\end{scriptsize}
 \end{frame}
 
 
