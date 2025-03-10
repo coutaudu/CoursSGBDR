@@ -1,2 +1,2 @@
-psql -f fabriqueBDD.sql  postgresql://postgres:postgres@localhost:5432/postgres
+psql -f atelierBDD.sql  postgresql://postgres:postgres@localhost:5432/postgres
 pause
