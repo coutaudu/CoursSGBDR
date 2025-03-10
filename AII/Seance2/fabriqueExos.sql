@@ -1,62 +1,59 @@
--- Introduction aux Bases de Données 
+-- Introduction aux Bases de DonnÃ©es 
 -- L3P AII
 
 -- [1] Clause SELECT
--- Afficher les prénoms et salaires des employés.
--- Afficher toutes les informations des employés.
+-- Afficher les prÃ©noms et salaires des employÃ©s.
+-- Afficher toutes les informations des employÃ©s.
 
 -- [2] Clause SELECT avec contraintes
--- Afficher les prénoms des employés du service production.
--- Afficher les prénoms des employés qui gagne 110 ou moins.
--- Afficher les prénoms des employés dont l'adresse contient la chaine "an".
--- Afficher les prénoms et salaires des employés du service Production et Maintenance.
+-- Afficher les prÃ©noms des employÃ©s du service production.
+-- Afficher les prÃ©noms des employÃ©s qui gagne 110 ou moins.
+-- Afficher les prÃ©noms des employÃ©s dont l'adresse contient la chaine "an".
+-- Afficher les prÃ©noms et salaires des employÃ©s du service Production et Maintenance.
 
--- [3] Filtrer les résultats: Clause DISTINCT
--- Afficher sans répétition la liste des services.
--- Afficher sans répétition les débuts de services.
+-- [3] Filtrer les rÃ©sultats: Clause DISTINCT
+-- Afficher sans rÃ©pÃ©tition la liste des services.
+-- Afficher sans rÃ©pÃ©tition les heures de dÃ©buts de services.
 
--- [4] Filtrer les résultats: Clause ORDER BY
--- Afficher toutes les informations sur les employes en les triants par ordre alphabétique sur les prénoms.
--- Afficher prénoms et adresses des employes en triant par salaires décroissants.
+-- [4] Filtrer les rÃ©sultats: Clause ORDER BY
+-- Afficher toutes les informations sur les employes en les triants par ordre alphabÃ©tique sur les prÃ©noms.
+-- Afficher prÃ©noms et adresses des employes en triant par salaires dÃ©croissants.
 
--- [5] Filtrer les résultats: Clauses LIMIT et OFFSET
--- Afficher l'employé le moins bien payé.
--- Afficher le deuxieme employé le moins bien payé.
+-- [5] Filtrer les rÃ©sultats: Clauses LIMIT et OFFSET
+-- Afficher l'employÃ© le moins bien payÃ©.
+-- Afficher le deuxieme employÃ© le moins bien payÃ©.
 
--- [6] Requêtes sur plusieurs tables: Clause INNER JOIN
+-- [6] RequÃªtes sur plusieurs tables: Clause INNER JOIN
 -- Afficher la jonction de toutes les informations de la BDD
 -- Afficher les horaires de John.
--- Afficher les noms et horaires de tous les employés du service production.
+-- Afficher les noms et horaires de tous les employÃ©s du service production.
 
--- [7] Requêtes sur plusieurs tables: Clause LEFT JOIN
--- Afficher les prénoms des employés qui n'ont pas d'horaires.
+-- [7] RequÃªtes sur plusieurs tables: Clause LEFT JOIN
+-- Afficher les prÃ©noms des employÃ©s qui n'ont pas d'horaires.
 
 -- [8] Les expressions
--- Les salaires de la base sont journaliers. Afficher les prénoms et salaires mensuels (20 jours travaillés).
+-- Les salaires de la base sont journaliers. Afficher les prÃ©noms et salaires mensuels (20 jours travaillÃ©s).
 
--- [9] Les aggrégats: les fonctons d'aggrégats
--- Afficher le nombre d'employés.
+-- [9] Les aggrÃ©gats: les fonctons d'aggrÃ©gats
+-- Afficher le nombre d'employÃ©s.
 -- Afficher le salaire minimal.
 -- Afficher le salaire moyen.
 -- Afficher la masse salariale totale.
 
--- [9] Les aggrégats: Clauses GROUP BY et HAVING
+-- [9] Les aggrÃ©gats: Clauses GROUP BY et HAVING
 -- Afficher la masse salariale de chaque service.
 -- Afficher le salaire moyen par adresse.
--- Afficher le salaire moyen des groupes d'employés ayant tous le même salaire à une même adresse.
+-- Afficher le salaire moyen des groupes d'employÃ©s ayant tous le mÃªme salaire Ã  une mÃªme adresse.
 
--- [10] Insérer: Clause INSERT INTO
--- Ajouter un nouvel employé dans le service "Production"
--- Ajouter un service "Production Après-Midi" dont les horaires seront 13h-20h.
+-- [10] InsÃ©rer: Clause INSERT INTO
+-- Ajouter un nouvel employÃ© dans le service "Production"
+-- Ajouter un service "Production AprÃ¨s-Midi" dont les horaires seront 13h-20h.
 -- Ajouter les horaires 16h-5h pour le service "Astreinte"
--- Ajouter un nouvel employé "John" au service "Production Après-Midi". Que ce passe il ? 
+-- Ajouter un nouvel employÃ© "John" au service "Production AprÃ¨s-Midi". Que ce passe il ? 
 
 -- [11] Modifier: Clause UPDATE
 -- Augmenter le salaire des employes de "Astreinte" de 30%
--- L'employé Tom change de service et passe à l'après midi 
--- Supprimer le service de production après-midi.
+-- L'employÃ© Tom change de service et passe Ã  l'aprÃ¨s midi 
 
 -- [12] Supprimer: Clause DELETE FROM 
--- Augmenter le salaire des employes de "Astreinte" de 30%
--- L'employé Tom change de service et passe à l'après midi 
--- Supprimer le service de production après-midi.
+-- Supprimer le service de production aprÃ¨s-midi.
