@@ -41,7 +41,7 @@
 	
 \maketitle
 
-\section{Modifier des données}
+\section{Modifier les données}
 \begin{frame}
 \begin{center}
 {\LARGE \textbf{Modifier des données}}
@@ -155,77 +155,6 @@
 
 
  
-\section{Les contraintes}
-\begin{frame}
-\begin{center}
-{\LARGE \textbf{Les contraintes}}
-\end{center}
-\pause
-\begin{itemize}
-	\item Règles qui restreignent les données dans la BDD.\\
-	\item Chaque contrainte est associée à une table.\\
-	\item Bloque tout ajout/modification qui viole les contraintes.
-	\item Garantissent \textbf{certains} aspects de la cohérence de la BDD.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Clé Primaire}
-	\begin{alertblock}{PRIMARY KEY}
-		CONSTRAINT \textit{ma\_clé\_primaire} PRIMARY KEY (\textit{colonne1})\\
-		Unique et non nulle.\\
-		Identifie l'enregistrement (cad la ligne).\\
-	\end{alertblock}
-	
-\begin{scriptsize}
-	BDD "fabrique" :\\
-	\textit{Modifier le nom de Peter en John. Que ce passe il ? }\\
-\end{scriptsize}
-
-	\vspace*{1em}
-	Remarque: Si la clé primaire n'est pas définie à la création de la table ... \pause c'est l'ensemble des colonnes, cad la ligne entière.
-	
-	
-\end{frame}
-
-\begin{frame}{Clé Secondaire}
-	\begin{alertblock}{UNIQUE}
-		CONSTRAINT \textit{ma\_clé\_secondaire} UNIQUE (\textit{colonne1})\\
-		Unique mais peut être nulle.
-	\end{alertblock}
-	
-	\textit{En analysant le script de création de la BDD fabrique, trouver une clé secondaire de la table employes et expliquer sont sens.}\\
-		
-\end{frame}
-
-\begin{frame}{Clé étrangère}
-	\begin{alertblock}{FOREIGN KEY}
-		CONSTRAINT \textit{ma\_clé\_étrangère} FOREIGN KEY (colonne1) REFERENCES table\_etrangère(colonneX))\\
-		Assure l'\textit{intégrité référentielle}.\\
-		Existe nécessairement dans la table de référence.
-	\end{alertblock}
-	\begin{block}{Et si la clé de référence disparait ?}
-		Trois options:
-		\begin{itemize}
-			\item ON DELETE RESTRICT
-			\item ON DELETE CASCADE
-			\item ON DELETE SET NULL
-		\end{itemize}
-		\textbf{ATTENTION: Pointe nécessairement vers une clé primaire.}				
-	\end{block}
-\end{frame}
-
-
-\begin{frame}{Check}
-	\begin{alertblock}{CHECK}
-		CONSTRAINT \textit{mon\_check} CHECK (condition)\\
-	\end{alertblock}
-	Remarque: Même genre de conditions que dans un WHERE.
-	\vspace*{1em}
-	\textit{En lisant le fichier fabriqueBDD.sql: quelle contrainte CHECK existe sur la table employes ?}\\
-	\textit{Quelle contrainte devrait on ajouter sur la colonne salaire ?}\\
-\end{frame}
-
-
 
 
 \section{Les transactions}

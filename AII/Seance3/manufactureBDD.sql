@@ -1,10 +1,10 @@
 \c postgres
 
-DROP DATABASE IF EXISTS "fabrique";
+DROP DATABASE IF EXISTS "manufacture";
 
-CREATE DATABASE "fabrique" ;
+CREATE DATABASE "manufacture" ;
 	
-\c fabrique
+\c manufacture
 	
 
 CREATE TABLE horaires (
@@ -37,7 +37,7 @@ INSERT INTO horaires VALUES ('Maintenance',8,16);
 INSERT INTO horaires VALUES ('Stock',8,16);
 INSERT INTO horaires VALUES ('Astreinte',NULL,NULL);
 
-INSERT INTO employes VALUES ('John',120,'Randwick','john@fabrique.com','Production');
+INSERT INTO employes VALUES ('John',120,'Randwick','john@manufacture.com','Production');
 INSERT INTO employes VALUES ('Mary',130,'Wollolong',NULL,'Maintenance');
 INSERT INTO employes VALUES ('Peter',110,'Randwick',NULL,'Stock');
 INSERT INTO employes VALUES ('Tom',120,'Botany Bay',NULL,'Production');

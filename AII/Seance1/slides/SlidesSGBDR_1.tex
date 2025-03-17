@@ -256,9 +256,9 @@ Rudiments des Bases de Données:
 	    \end{column}
 	    \begin{column}{0.55\textwidth}
 		\begin{block}{Texte:}
-Sensible à la casse: =, != ou <> 
-\\Non sensible à la casse: LIKE (caractère joker: \%)
-\\IN ("mot1", "mot2", "mot3")
+colonne1 = 'texte' (!= <>) 
+\\LIKE (caractère joker: \%)
+\\IN ('mot1', 'mot2', 'mot3')
 	\end{block}
 		    \end{column}
 	    \end{columns}
@@ -286,7 +286,7 @@ BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\un
 		\vspace{1em}
 		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
 		\vspace{0.5em}
-		\textit{Afficher sans répétition la liste des services.}\\
+		\textit{Afficher sans répétition la liste des salaires.}\\
 		\textit{Afficher sans répétition les horaires de débuts de services.}\\
 \end{scriptsize}
 \end{frame}
@@ -338,6 +338,7 @@ BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\un
 		\vspace{1em}
 		BDD "atelier": employes(\underline{prenom},salaire,adresse,service) horaires(\underline{service},debut,fin)\\
 		\vspace{0.5em}
+		\textit{Afficher la jonction complète des tables employes et horaires.}\\
 		\textit{Afficher les horaires de John.}\\
 		\textit{Afficher les noms et horaires de tous les employés du service production.}\\
 \end{scriptsize}

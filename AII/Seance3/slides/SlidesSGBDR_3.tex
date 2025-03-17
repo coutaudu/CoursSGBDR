@@ -39,8 +39,84 @@
 	
 \maketitle
 
+\section{Les contraintes}
+\begin{frame}
+\begin{center}
+{\LARGE \textbf{Les contraintes}}
+\end{center}
+\pause
+\begin{itemize}
+	\item Règles qui restreignent les données dans la BDD,
+	\item et garantissent \textbf{certains} aspects de la cohérence de la BDD.
+	\begin{itemize}
+		\item Bloquent toute modification des données qui viole les contraintes.
+		\item Chaque contrainte est associée à une table.
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
-\section{Les contraintes (suite)}
+\begin{frame}{Clé Primaire}
+	\begin{alertblock}{PRIMARY KEY}
+		CONSTRAINT \textit{ma\_clé\_primaire} PRIMARY KEY (\textit{colonne1})\\
+		Unique et non nulle.\\
+		Identifie l'enregistrement (cad la ligne).\\
+	\end{alertblock}
+	
+\begin{scriptsize}
+	BDD "manufacture" :\\
+	\textit{Modifier le nom de Peter en John. Que ce passe il ? }\\
+\end{scriptsize}
+
+	\vspace*{1em}
+	Remarque: Si la clé primaire n'est pas définie à la création de la table ... \pause c'est l'ensemble des colonnes, cad la ligne entière.
+	
+	
+\end{frame}
+
+\begin{frame}{Clé Secondaire}
+	\begin{alertblock}{UNIQUE}
+		CONSTRAINT \textit{ma\_clé\_secondaire} UNIQUE (\textit{colonne1})\\
+		Unique mais peut être nulle.
+	\end{alertblock}
+	
+\begin{scriptsize}
+			\textit{En analysant le script de création de la BDD manufacture, trouver une clé secondaire de la table employes et expliquer sont sens.}\\
+\end{scriptsize}		
+\end{frame}
+
+\begin{frame}{Clé étrangère}
+	\begin{alertblock}{FOREIGN KEY}
+		CONSTRAINT \textit{ma\_clé\_étrangère} FOREIGN KEY (colonne1) REFERENCES table\_etrangère(colonneX))\\
+		Assure l'\textit{intégrité référentielle}.\\
+		Existe nécessairement dans la table de référence.
+	\end{alertblock}
+	\begin{block}{Et si la clé de référence disparait ?}
+		Trois options:
+		\begin{itemize}
+			\item ON DELETE RESTRICT
+			\item ON DELETE CASCADE
+			\item ON DELETE SET NULL
+		\end{itemize}
+		\textbf{ATTENTION: Pointe nécessairement vers une clé primaire.}				
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Check}
+	\begin{alertblock}{CHECK}
+		CONSTRAINT \textit{mon\_check} CHECK (condition)\\
+	\end{alertblock}
+	Remarque: Même genre de conditions que dans un WHERE.\\
+	\vspace*{1em}
+\begin{scriptsize}
+	\textit{En lisant le fichier manufactureBDD.sql: quelle contrainte CHECK existe sur la table employes ?}\\
+	\textit{Quelle contrainte devrait on ajouter sur la colonne salaire ?}\\
+\end{scriptsize}
+\end{frame}
+
+
+
+%%\section{Les contraintes (suite)}
 
 
 \begin{frame}{Désactiver temporairement une contrainte}
@@ -50,11 +126,10 @@
 		SET CONSTRAINTS \textit{ma\_contrainte} DEFERRED;
 	\end{alertblock}
 		
-	Remarque: PostgreSQL ne permet pas de différer les contraintes NOT NULL et CHECK.\\
+	\begin{footnotesize}
+		Remarque: PostgreSQL ne permet pas de différer les contraintes NOT NULL et CHECK.\\
+	\end{footnotesize}
 	\vspace{1em}
-	
-
-
 	
 \end{frame}
 
@@ -63,10 +138,11 @@
 		SET CONSTRAINTS \textit{ALL} DEFERRED;
 	\end{alertblock}
 	
-	\textit{Mettre à jour la BDD \textit{fabrique}.}
-	\textit{Observer les contraintes.}
-	\textit{Faire une transaction pour intégrer à la base \textit{fabrique} les employés Ozgur et Marie dans le nouveau service "IT".}\\
-	
+	\begin{scriptsize}
+	BDD "manufacture" :\\
+	\textit{Observer les contraintes.}\\
+	\textit{Faire une transaction pour intégrer à la base \textit{manufacture} les employés Ozgur et Marie dans le nouveau service "IT".}
+	\end{scriptsize}
 \end{frame}
 
 \begin{frame}{Valeurs par default}
@@ -92,111 +168,113 @@
 
 \end{frame}
 
-\section{Quelques points pratiques pour PostgreSQL}
-\begin{frame}{Extraire les résultats des requêtes}
-	\begin{block}{La commande \textbackslash o}
-		\textbackslash o \textit{mon\_fichier\_de\_sortie}\\
-		\textit{... mes commandes sql ...}\\
-		\textbackslash o \textit{-{-} Désactive la sortie vers le fichier, retour à la ligne de commande.}
-	\end{block}
-	\begin{block}{La commande \textbackslash copy}
-	\textbackslash COPY (SELECT * FROM employes) TO './mon\_fichier\_de\_sortie.csv' WITH DELIMITER AS ',' CSV HEADER;
-	\end{block}	
-\end{frame}
 
-\begin{frame}[t]{Exécuter un script directement depuis la console}
-	\textit{{\footnotesize Cad sans être au préalable connecté dans l'interface psql.}}
-	\begin{block}{L'option -f}
-		psql -f \textit{mon\_fichier\_de\_script.sql} \textit{ma\_base\_de\_donnees} \textit{mon\_utilisateur}\\
-		\begin{itemize}
-			\item Se connecte à la base de donnée,
-			\item exécute le script \textit{mon\_fichier\_de\_script.sql},
-			\item puis quitte.
-		\end{itemize}
-	\end{block}
-\end{frame}
-
-
-\begin{frame}{Passer le mot de passe en ligne de commande}
-	\begin{block}{}
-		{\small psql postgresql://utilisateur:mot\_de\_passe@localhost:5432/ma\_bdd}
-	\end{block}
-	
-	Dans notre cas:\\ \textit{psql postgresql://postgres:postgres@localhost:5432/fabrique}\\
-
-	\vspace{1em}
-	\textit{- Faire un script (batch), exécutable par une simple double clic, qui extrait la table employes de la BDD fabrique, au format csv.}\\
-	\textit{- Ajouter un fichier de log doit être générer afin de pouvoir vérifier la bonne exécution du script.}
-	
-
-\end{frame}
-
-
-\begin{frame}{Les variables psql: assignation et utilisation}
-	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
-		\textbackslash set nom\_de\_variable valeur
-	\end{block}
-
-	\begin{block}{Utiliser une variable}
-		SELECT * FROM ma\_table WHERE colonne1=\textbf{:}nom\_de\_variable;
-	\end{block}
-	Remarque: Pour une variable de type texte:
-		SELECT * FROM ma\_table WHERE colonne1=\textbf{:'}nom\_de\_variable\textbf{'};
- 
-	\textit{Faire un script qui créé un nouveau service, y ajoute 1 employé et le déclare comme chef du service. Utiliser des variables déclarées et assignées en début de script.}
-	
-\end{frame}
-
-\begin{frame}{Les variables psql: assignations "avancée"}
-	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
-		\textbackslash set mon\_nom\_de\_variable valeur
-	\end{block}
-
-	\begin{block}{Déclarer et assigner une variable en argument de la connexion à psql}
-		psql -v var1='Ulysse' -v variable2=130 -v v3="'Maintenance'"
-	\end{block}
-	
-	\begin{block}{Lire dynamiquement une variable dans un script psql}
-		\textbackslash prompt 'Svp, entrez la valeur pour variable1: ' variable1
-	\end{block}
-
-	\textit{Reprendre le script précédent et le rendre dynamique. Cad l'utilisateur doit taper les valeurs à ajouter.}	
-	
-\end{frame}
-
-
-\section{Exercices}
-\begin{frame}{}
-
-Sur la base fabrique:
-\begin{itemize}
- 	\item \textit{Faire un script qui demande à taper le nom d'un employé, et retourne les horaires de cet employés.}	
-\end{itemize}
-		
-Sur votre base atelier:
-\begin{itemize}
-	\item \textit{Faire un script qui demande à taper le nom d'un employé, et retourne la liste des machines sur lequel il est formé.}
-	\item \textit{Faire un script qui demande à taper le nom d'une machine, et retourne la liste des employes qui sont formés à l'utiliser.}
-\end{itemize}
-\end{frame}
-
-%COPY (select * from employes) TO 'C:\Program Files\PostgreSQL\15\data\testCopy.csv
-%' WITH DELIMITER AS ',' CSV HEADER;
-%\section{Les triggers}
+%\section{Quelques points pratiques pour PostgreSQL}
+%\begin{frame}{Extraire les résultats des requêtes}
+%	\begin{block}{La commande \textbackslash o}
+%		\textbackslash o \textit{mon\_fichier\_de\_sortie}\\
+%		\textit{... mes commandes sql ...}\\
+%		\textbackslash o \textit{-{-} Désactive la sortie vers le fichier, retour à la ligne de commande.}
+%	\end{block}
+%	\begin{block}{La commande \textbackslash copy}
+%	\textbackslash COPY (SELECT * FROM employes) TO './mon\_fichier\_de\_sortie.csv' WITH DELIMITER AS ',' CSV HEADER;
+%	\end{block}	
+%\end{frame}
 %
-%
-%\begin{frame}{Qu'est ce qu'un trigger ?}
-%	\begin{block}{Trigger: }
-%		Une fonction SQL (cad ensemble de commandes SQL).\\
-%		Rattaché à une table.
-%		Déclenché automatiquement.\\
-%		Lors d'un événement (cad INSERT/UPDATE/DELETE).
+%\begin{frame}[t]{Exécuter un script directement depuis la console}
+%	\textit{{\footnotesize Cad sans être au préalable connecté dans l'interface psql.}}
+%	\begin{block}{L'option -f}
+%		psql -f \textit{mon\_fichier\_de\_script.sql} \textit{ma\_base\_de\_donnees} \textit{mon\_utilisateur}\\
+%		\begin{itemize}
+%			\item Se connecte à la base de donnée,
+%			\item exécute le script \textit{mon\_fichier\_de\_script.sql},
+%			\item puis quitte.
+%		\end{itemize}
 %	\end{block}
 %\end{frame}
-
-
-
-
-
+%
+%
+%\begin{frame}{Passer le mot de passe en ligne de commande}
+%	\begin{block}{}
+%		{\small psql postgresql://utilisateur:mot\_de\_passe@localhost:5432/ma\_bdd}
+%	\end{block}
+%	
+%	Dans notre cas:\\ \textit{psql postgresql://postgres:postgres@localhost:5432/manufacture}\\
+%
+%	\vspace{1em}
+%	\textit{- Faire un script (batch), exécutable par une simple double clic, qui extrait la table employes de la BDD manufacture, au format csv.}\\
+%	\textit{- Ajouter un fichier de log doit être générer afin de pouvoir vérifier la bonne exécution du script.}
+%	
+%
+%\end{frame}
+%
+%
+%\begin{frame}{Les variables psql: assignation et utilisation}
+%	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
+%		\textbackslash set nom\_de\_variable valeur
+%	\end{block}
+%
+%	\begin{block}{Utiliser une variable}
+%		SELECT * FROM ma\_table WHERE colonne1=\textbf{:}nom\_de\_variable;
+%	\end{block}
+%	Remarque: Pour une variable de type texte:
+%		SELECT * FROM ma\_table WHERE colonne1=\textbf{:'}nom\_de\_variable\textbf{'};
+% 
+%	\textit{Faire un script qui créé un nouveau service, y ajoute 1 employé et le déclare comme chef du service. Utiliser des variables déclarées et assignées en début de script.}
+%	
+%\end{frame}
+%
+%\begin{frame}{Les variables psql: assignations "avancée"}
+%	\begin{block}{Déclarer et assigner une variable dans l'interface psql}
+%		\textbackslash set mon\_nom\_de\_variable valeur
+%	\end{block}
+%
+%	\begin{block}{Déclarer et assigner une variable en argument de la connexion à psql}
+%		psql -v var1='Ulysse' -v variable2=130 -v v3="'Maintenance'"
+%	\end{block}
+%	
+%	\begin{block}{Lire dynamiquement une variable dans un script psql}
+%		\textbackslash prompt 'Svp, entrez la valeur pour variable1: ' variable1
+%	\end{block}
+%
+%	\textit{Reprendre le script précédent et le rendre dynamique. Cad l'utilisateur doit taper les valeurs à ajouter.}	
+%	
+%\end{frame}
+%
+%
+%\section{Exercices}
+%\begin{frame}{}
+%
+%Sur la base manufacture:
+%\begin{itemize}
+% 	\item \textit{Faire un script qui demande à taper le nom d'un employé, et retourne les horaires de cet employés.}	
+%\end{itemize}
+%		
+%Sur votre base atelier:
+%\begin{itemize}
+%	\item \textit{Faire un script qui demande à taper le nom d'un employé, et retourne la liste des machines sur lequel il est formé.}
+%	\item \textit{Faire un script qui demande à taper le nom d'une machine, et retourne la liste des employes qui sont formés à l'utiliser.}
+%\end{itemize}
+%\end{frame}
+%
+%%COPY (select * from employes) TO 'C:\Program Files\PostgreSQL\15\data\testCopy.csv
+%%' WITH DELIMITER AS ',' CSV HEADER;
+%%\section{Les triggers}
+%%
+%%
+%%\begin{frame}{Qu'est ce qu'un trigger ?}
+%%	\begin{block}{Trigger: }
+%%		Une fonction SQL (cad ensemble de commandes SQL).\\
+%%		Rattaché à une table.
+%%		Déclenché automatiquement.\\
+%%		Lors d'un événement (cad INSERT/UPDATE/DELETE).
+%%	\end{block}
+%%\end{frame}
+%
+%
+%
+%
+%
+%
 
 \end{document}

@@ -1,17 +1,17 @@
 -- !!! A REMPLIR !!!
 -- Nom prenom numero_etu email
 
--- Exercice Base De Donnée "atelier" 
+-- Exercice Base De Donnée "manufacture" 
 
 -- CONSIGNES:
--- Sur votre base de donnée "atelier" (vous pouvez la modifier pour la corriger/l'améliorer)
+-- Sur votre base de donnée "manufacture" (vous pouvez la modifier pour la corriger/l'améliorer)
 -- Pas d'espace dans les noms de fichiers !!!!!!!
 -- Mettez les commentaires nécessaires à la compréhension.
 -- Travail à rendre sous la forme d'une archive .zip
--- L'archive rendue DOIT être appelé VOTRENOM_ExosAtelier2.zip
--- L'archive rendue DOIT contenir le fichier de création de la base "atelier".
+-- L'archive rendue DOIT être appelé VOTRENOM_Exosmanufacture2.zip
+-- L'archive rendue DOIT contenir le fichier de création de la base "manufacture".
 -- Envoyer votre archive zip à ulysse.coutaud@gmail.com
--- L'objet du mail DOIT être "L3PAII VOTRENOM Exos ateliers 2"
+-- L'objet du mail DOIT être "L3PAII VOTRENOM Exos manufactures 2"
 
 
 
