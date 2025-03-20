@@ -93,3 +93,7 @@
 -- 35 Afficher l'age moyen par service
 
 -- 36 Afficher le nom des services dont la date de naissance moyenne est inférieure à 1970
+
+-- 37 Une salariée du service le plus jeune parmis les services dont la moyenne d'année de naissance est inférieure à 1970  à trouvé ton carnet. Tu vas pouvoir te faire payer tes heures sup' !
+SELECT * from salaries WHERE service_id = (
+SELECT service_id FROM salaries GROUP BY (service_id) HAVING AVG(annee_naissance) <1970 ORDER BY AVG(annee_naissance) DESC LIMIT 1) AND sexe='F';
