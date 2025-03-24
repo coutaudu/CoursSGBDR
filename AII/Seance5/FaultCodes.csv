@@ -1,0 +1,35 @@
+FaultCode;Description
+5;Défaut Inconnu - PAS DE RECYCLAGE
+5;Défaut ouverture porte presse
+26;Graveur en défaut
+27;Défaut echo DMC
+57;Poste A - Défaut Limite sup. ou inf. atteinte
+58;Poste A - Défaut Sleeve
+59;Poste B - Défaut Limite sup. ou inf. atteinte
+60;Poste B - Défaut Sleeve
+61;Poste A - Défaut communication avec presse Sleeve 1
+62;Poste B - Défaut communication avec presse Sleeve 1
+91;Poste A - Défaut Limite sup. ou inf. atteinte
+92;Poste A - Défaut Gear 1
+93;Poste B - Défaut Limite sup. ou inf. atteinte
+94;Poste B - Défaut Gear 1
+95;Poste A - Défaut communication avec presse Gear 1
+96;Poste B - Défaut communication avec presse Gear 1
+126;Poste A - Défaut Limite sup. ou inf. atteinte
+127;Poste A - Défaut Gear 2
+128;Poste B - Défaut Limite sup. ou inf. atteinte
+129;Poste B - Défaut Gear 2
+130;Poste A - Défaut communication avec presse Gear 2
+131;Poste B - Défaut communication avec presse Gear 2
+196;Défaut Caméra 1
+197;Défaut Caméra 2
+198;Défaut Caméra 1 & 2
+199;Défaut Caméra 3
+200;Défaut Caméra 1 & 3
+201;Défaut Caméra 2 & 3
+202;Défaut Caméra 1 & 2 & 3
+231;Défaut valeur de surface NOK
+266;Défaut Grade DMC NOK
+267;Défaut Contrôle Dimensionnel NOK
+1000;PIECE CASSE
+1001;PIECE POUR VISCOSITE
